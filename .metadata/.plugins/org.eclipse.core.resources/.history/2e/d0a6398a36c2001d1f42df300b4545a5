@@ -1,0 +1,15 @@
+package com.example.microservice.userservice.dao.implementation;
+
+import com.example.microservice.userservice.dao.base.BaseUserDao;
+import com.example.microservice.userservice.dao.declaration.DeleteUserDao;
+import com.example.microservice.userservice.model.User;
+
+public class DeleteUserDaoImpl extends BaseUserDao implements DeleteUserDao {
+
+	@Override
+	public Boolean deleteUser(User data) {
+		return repository.delete(data);;
+	}
+
+    
+}

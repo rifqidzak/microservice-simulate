@@ -1,0 +1,17 @@
+package com.example.microservice.userservice.service.implementation.user;
+
+import com.example.microservice.core.base.dto.BasePostResDto;
+import com.example.microservice.userservice.dto.PostUserDataDto;
+import com.example.microservice.userservice.model.User;
+import com.example.microservice.userservice.service.base.BaseUserService;
+import com.example.microservice.userservice.service.declaration.user.InsertUserService;
+
+public class InsertUserServiceImpl extends BaseUserService implements InsertUserService{
+
+	@Override
+	public BasePostResDto insert(PostUserDataDto data) {
+		final User user = new User();
+		return null;
+	}
+
+}

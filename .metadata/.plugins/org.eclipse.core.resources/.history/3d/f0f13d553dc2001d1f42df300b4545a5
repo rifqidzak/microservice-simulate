@@ -1,0 +1,5 @@
+package com.example.microservice.userservice.service.base;
+
+public class BaseUserService {
+
+}

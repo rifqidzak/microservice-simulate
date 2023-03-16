@@ -1,0 +1,5 @@
+package com.example.microservice.userservice.service.implementation.jwt;
+
+public class JwtServiceImpl {
+
+}

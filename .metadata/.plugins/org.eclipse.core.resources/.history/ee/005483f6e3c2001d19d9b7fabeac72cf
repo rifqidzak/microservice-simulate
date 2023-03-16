@@ -1,0 +1,20 @@
+package com.example.microservice.userservice.service.implementation.jwt;
+
+import java.security.KeyPair;
+import java.util.Map;
+
+import com.example.microservice.userservice.service.declaration.jwt.JwtService;
+
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
+
+public class JwtServiceImpl implements JwtService {
+	private final KeyPair key = Keys.keyPairFor(SignatureAlgorithm.RS256);
+	@Override
+	public String generateJwt(Map<String, Object> claims) {
+		final String jwt = Jwts.builder().setClaims(claims).signWith(key.getPrivate()).compact();
+		return null;
+	}
+
+}

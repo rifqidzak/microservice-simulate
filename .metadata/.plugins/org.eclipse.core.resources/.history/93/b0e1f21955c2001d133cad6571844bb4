@@ -1,0 +1,6 @@
+package com.example.microservice.core.util;
+
+@Component
+public class AuthenticationUtil {
+
+}

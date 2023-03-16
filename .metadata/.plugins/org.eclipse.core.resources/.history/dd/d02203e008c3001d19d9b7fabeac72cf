@@ -1,0 +1,49 @@
+package com.example.microservice.userservice.service.implementation.jwt;
+
+import java.nio.charset.StandardCharsets;
+import java.security.KeyFactory;
+import java.security.KeyPair;
+import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
+import java.util.Base64;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+import com.example.microservice.userservice.service.declaration.jwt.JwtService;
+
+import io.jsonwebtoken.Jwts;
+
+@Service
+public class JwtServiceImpl implements JwtService {
+
+	private final KeyPair key;
+	
+    public JwtServiceImpl(@Value("${private.key}") String privateKey) {
+        byte[] decodedPrivateKeyBytes = Base64.getDecoder().decode(privateKey.getBytes(StandardCharsets.UTF_8));
+        try {
+            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            PrivateKey decodedPrivateKey = keyFactory.generatePrivate(new PKCS8EncodedKeySpec(decodedPrivateKeyBytes));
+            this.key = new KeyPair(decodedPublicKey, decodedPrivateKey);
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+            throw new RuntimeException("Error decoding keys", e);
+        }
+    }
+
+
+	@Override
+	public String generateJwt(Map<String, Object> claims) {
+		final String jwt = Jwts.builder().setClaims(claims).signWith(key.getPrivate()).compact();
+		return jwt;
+	}
+
+	public Map<String, Object> parseJwt(String token) {
+		return Jwts.parserBuilder().setSigningKey(key.getPublic()).build().parseClaimsJws(token).getBody();
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.example.microservice.core.config;
+
+public class GlobalConfig {
+
+}

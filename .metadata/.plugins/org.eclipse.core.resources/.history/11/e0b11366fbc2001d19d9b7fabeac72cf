@@ -1,0 +1,24 @@
+package com.example.microservice.userservice.service.implementation.jwt;
+
+import java.security.Key;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Value;
+
+import com.example.microservice.userservice.service.declaration.jwt.JwtService;
+
+import io.jsonwebtoken.Jwts;
+
+public class JwtServiceImpl implements JwtService{
+
+	@Value("$private.key")
+	private String privateKey;
+	
+	@Override
+	public String generateJwt(Map<String, Object> claims) {
+
+		final String jwt = Jwts.builder().setClaims(claims).signWith(null, privateKey).compact();
+		return jwt;
+	}
+
+}

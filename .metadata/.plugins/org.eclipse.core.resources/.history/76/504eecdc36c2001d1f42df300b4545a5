@@ -1,0 +1,10 @@
+package com.example.microservice.userservice.service;
+
+import java.util.List;
+
+import com.example.microservice.core.base.dto.BaseGetResData;
+import com.example.microservice.userservice.dto.GetUserDataDto;
+
+public interface GetAllUserService {
+	List<BaseGetResData<GetUserDataDto>>  getAll();
+}

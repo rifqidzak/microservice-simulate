@@ -1,0 +1,5 @@
+package com.example.microservice.userservice.dto.auth;
+
+public class AutorizationResDto {
+
+}

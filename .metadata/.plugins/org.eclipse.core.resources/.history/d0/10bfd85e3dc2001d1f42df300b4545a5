@@ -1,0 +1,60 @@
+package com.example.microservice.userservice.service.base;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.example.microservice.core.base.dto.BaseGetResData;
+import com.example.microservice.userservice.dto.GetUserDataDto;
+import com.example.microservice.userservice.model.User;
+import com.google.common.base.Optional;
+
+public class BaseUserService {
+	protected BaseGetResData setToDto(List<User> data) {
+		final List<GetUserDataDto> dtos = new ArrayList<>();
+		for (User user : data) {
+			GetUserDataDto dto = setToDto(user);
+			dtos.add(dto);
+		}
+		return dtos;
+	}
+
+	protected ProductGetDataDto setToDto(Product data) {
+		final ProductGetDataDto product = new ProductGetDataDto();
+		product.setCode(data.getCode());
+		product.setId(data.getId());
+		product.setName(data.getName());
+		product.setPrice(data.getPrice());
+		product.setStock(data.getStock());
+		product.setVersion(data.getVersion());
+		return product;
+	}
+
+	protected ProductGetDataDto setToDto(Optional<Product> data) {
+		final ProductGetDataDto product = new ProductGetDataDto();
+		if (data.isPresent()) {
+			Product productData = new Product();
+			productData = data.get();
+
+			product.setCode(productData.getCode());
+			product.setId(productData.getId());
+			product.setName(productData.getName());
+			product.setPrice(productData.getPrice());
+			product.setStock(productData.getStock());
+			product.setVersion(productData.getVersion());
+		}
+
+		return product;
+	}
+
+	protected BaseGetResData<List<ProductGetDataDto>> setToBaseGetResData(List<ProductGetDataDto> dtos) {
+		final BaseGetResData<List<ProductGetDataDto>> baseGetResData = new BaseGetResData<>();
+		baseGetResData.setData(dtos);
+		return baseGetResData;
+	}
+
+	protected BaseGetResData<ProductGetDataDto> setToBaseGetResData(ProductGetDataDto dto) {
+		final BaseGetResData<ProductGetDataDto> baseGetResData = new BaseGetResData<>();
+		baseGetResData.setData(dto);
+		return baseGetResData;
+	}
+}
