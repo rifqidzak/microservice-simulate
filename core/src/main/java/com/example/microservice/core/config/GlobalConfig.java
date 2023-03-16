@@ -1,3 +1,4 @@
+
 package com.example.microservice.core.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;

@@ -1,10 +1,9 @@
 package com.example.microservice.core.pojo;
 
-
 public class AuthorizationPojo {
 
 	private String token;
-	private Long id;
+	private String id;
 
 	public String getToken() {
 		return token;
@@ -14,13 +13,12 @@ public class AuthorizationPojo {
 		this.token = token;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
 }
-	
