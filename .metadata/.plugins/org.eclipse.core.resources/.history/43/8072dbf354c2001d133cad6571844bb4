@@ -1,5 +1,0 @@
-package com.example.microservice.core.pojo;
-
-public class AuthorizationPojo {
-
-}

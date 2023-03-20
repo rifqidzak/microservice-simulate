@@ -1,5 +1,0 @@
-package com.example.microservice.userservice.service.implementation.login;
-
-public class LoginService implements LoginServiceImpl{
-
-}

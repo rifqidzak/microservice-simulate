@@ -1,5 +1,0 @@
-package com.example.microservice.userservice.service;
-
-public interface GetByIdUserService {
-
-}

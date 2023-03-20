@@ -1,8 +1,0 @@
-package com.example.microservice.userservice.service.declaration.user;
-
-import com.example.microservice.core.base.dto.BaseGetResData;
-import com.example.microservice.userservice.dto.GetUserDataDto;
-
-public interface GetByIdUserService {
-	BaseGetResData<GetUserDataDto> getById(String id);
-}

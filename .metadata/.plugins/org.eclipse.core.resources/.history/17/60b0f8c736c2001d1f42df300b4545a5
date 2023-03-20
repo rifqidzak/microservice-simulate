@@ -1,8 +1,0 @@
-package com.example.microservice.userservice.service;
-
-import com.example.microservice.core.base.dto.BaseGetResData;
-import com.example.microservice.userservice.dto.GetUserDataDto;
-
-public class GetAllUserService {
-	BaseGetResData<GetUserDataDto> getAll();
-}

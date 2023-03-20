@@ -1,8 +1,0 @@
-package com.example.microservice.userservice.service;
-
-import com.example.microservice.core.base.dto.BasePutResDto;
-import com.example.microservice.userservice.dto.PutUserDatDto;
-
-public interface UpdateUserService {
-	BasePutResDto update(PutUserDataDto);
-}

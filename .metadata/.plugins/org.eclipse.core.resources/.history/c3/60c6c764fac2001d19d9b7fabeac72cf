@@ -1,5 +1,0 @@
-package com.example.microservice.userservice.service.declaration.jwt;
-
-public class JwtService {
-
-}

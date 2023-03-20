@@ -1,9 +1,0 @@
-package com.example.microservice.userservice.service;
-
-import com.example.microservice.core.base.dto.BasePostResDataDto;
-import com.example.microservice.core.base.dto.BasePostResDto;
-import com.example.microservice.userservice.dto.PostUserDataDto;
-
-public interface InsertUserService {
-	BasePostResDto<BasePostResDataDto> insert(PostUserDataDto);
-}

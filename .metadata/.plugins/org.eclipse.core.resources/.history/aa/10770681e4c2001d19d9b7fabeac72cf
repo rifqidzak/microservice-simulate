@@ -1,5 +1,0 @@
-package com.example.microservice.userservice.dto.login;
-
-public class LoginReqDto {
-
-}
